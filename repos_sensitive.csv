@@ -1,0 +1,101 @@
+repo,file,url,findings,is_sensitive
+AIxHunter/FileWizardAI,.env.md,https://github.com/AIxHunter/FileWizardAI/blob/8ca4366a0309b2e4e49db60cce3b92ad40babfbd/.env.md,,False
+danangkonang/aplication-poin-of-sale-web-php-codeigniter,.env.txt,https://github.com/danangkonang/aplication-poin-of-sale-web-php-codeigniter/blob/1aa774d995fa3e3d89bcdc8eec666a305634d9c2/.env.txt,,False
+anyproto/any-ns,.env.org,https://github.com/anyproto/any-ns/blob/51556d6011090eaf149cb1a29bc5c665f28ad757/.env.org,,False
+DLR-SC/repository-synergy,data/readme_files/jsvine.envplus.md,https://github.com/DLR-SC/repository-synergy/blob/115e48c37e659b144b2c3b89695483fd1d6dc788/data/readme_files/jsvine.envplus.md,,False
+Tombarr/open-source-words,_READMES/envoyproxy.envoy.md,https://github.com/Tombarr/open-source-words/blob/18ca0c71e7718a0e2e9b7269b018f77b06f423b4/_READMES/envoyproxy.envoy.md,,False
+hitobito/user_documentation,.envrc,https://github.com/hitobito/user_documentation/blob/435e1c099123a5d02cf918c2246409cf80f63003/.envrc,,False
+guzun-corp/chain-traverser,.env_example,https://github.com/guzun-corp/chain-traverser/blob/815913cea8331617964164d7c793c69750f5eb16/.env_example,,False
+GrabarzUndPartner/gp-vue-boilerplate,.env.example,https://github.com/GrabarzUndPartner/gp-vue-boilerplate/blob/3bacf2a17144294a05f143a5bf1facd9c8278d2e/.env.example,,False
+Xdavius/postinstall-debian-12,ENVYCONTROL-GUI/README.envycontrol.md,https://github.com/Xdavius/postinstall-debian-12/blob/598fc8be9e0962295c6a3df5d9576735907343e7/ENVYCONTROL-GUI/README.envycontrol.md,,False
+harisvsulaiman/shopify-nextjs-template,.env-example,https://github.com/harisvsulaiman/shopify-nextjs-template/blob/b4d26616e3c78bb2022f1a4368d9107cef040e79/.env-example,,False
+izhangzhihao/Real-time-Data-Warehouse,.env,https://github.com/izhangzhihao/Real-time-Data-Warehouse/blob/320d98d75af777caafa0b7c14c2d8e99bf67ee79/.env,,False
+lxylxy123456/shierquan,s.env.txt,https://github.com/lxylxy123456/shierquan/blob/d7c9d28d3af8edc8aa35cdf70333a5dba415dc89/s.env.txt,,False
+hvdthong/RepoExtractor,output/downloaded_README/hashicorp.envconsul.md,https://github.com/hvdthong/RepoExtractor/blob/775fa764b083f5d50f48bc92e507b06e1cb1bc20/output/downloaded_README/hashicorp.envconsul.md,Generic Password,True
+FC-Melgarejo/proyecto_final,.env.pod,https://github.com/FC-Melgarejo/proyecto_final/blob/3efa23d40d098a8556698f4236a93c1a5a7bca97/.env.pod,,False
+rakshixh/FakeAuthentication-API,.env .txt,https://github.com/rakshixh/FakeAuthentication-API/blob/eebdfb31a1a257f20d8261e822224cf12ef37b4d/.env%20.txt,,False
+Warl0rdd/DevRelHack,.env.wiki,https://github.com/Warl0rdd/DevRelHack/blob/d8ea2438454c22e00fc00c0086b72a724689c143/.env.wiki,,False
+sandroneterpone/ye-meme-trader,.env2.txt,https://github.com/sandroneterpone/ye-meme-trader/blob/0cf98ffad988794862d01b9c26419b09c5e3f09e/.env2.txt,,False
+Le-Rucher-d-Apidae/swapi-finance-interface,.env.MD,https://github.com/Le-Rucher-d-Apidae/swapi-finance-interface/blob/9e0763d1c982d2504e4bc8434993f554e686e59c/.env.MD,,False
+RedactdName/friendTracker,.envcopy.txt,https://github.com/RedactdName/friendTracker/blob/9b895341a777387ef4a60c3e10336f2a8811c42a/.envcopy.txt,Google API Key,True
+gildemberg-santos/libratica-go,.env.exemple,https://github.com/gildemberg-santos/libratica-go/blob/9f36dd33dd3f93a80e118ae2f15db00bc98d32e6/.env.exemple,,False
+wzulfikar/docker-sendportal,.env.sample,https://github.com/wzulfikar/docker-sendportal/blob/98bb927feb4642fad706e175eee66cd95ad8fe5a/.env.sample,,False
+VEIIEV/fastApi_YLAB_project,.env.no,https://github.com/VEIIEV/fastApi_YLAB_project/blob/ab8c24e07a2862ea69ce0596a103cdc954ebb508/.env.no,,False
+blockodyssey-eun/postresql_migration,.env.no,https://github.com/blockodyssey-eun/postresql_migration/blob/c0b9752217fc5d1dd7a49e2e136831ad12b9bff1/.env.no,,False
+joangavelan/donet,.env.local.example,https://github.com/joangavelan/donet/blob/97e79f96f81f3f46d21fe827878ef05b47824aed/.env.local.example,,False
+Debonik/DiscordGPT,.env..txt,https://github.com/Debonik/DiscordGPT/blob/fead5b29a7390854d1a2f5dd829bea56bec8e08a/.env..txt,,False
+NightCatSama/vue-slider-component,tsconfig.json,https://github.com/NightCatSama/vue-slider-component/blob/061e4f4afeb103d9727b58d1fabca486809472e7/tsconfig.json,,False
+be5invis/Sarasa-Gothic,config.json,https://github.com/be5invis/Sarasa-Gothic/blob/b71bba0b94fd55e963adfb6e559e3626e9ed9569/config.json,,False
+wangdoc/typescript-tutorial,docs/tsconfig.json.md,https://github.com/wangdoc/typescript-tutorial/blob/ced2b3b72756b43d9cae67b843d460900ad4b2c4/docs/tsconfig.json.md,,False
+HouzuoGuo/laitos,sample-config.json.txt,https://github.com/HouzuoGuo/laitos/blob/06666e622d845f5bd88169ab9642b54331550f0d/sample-config.json.txt,,False
+fossasia/fossasia-nodemailer,config.json.dist,https://github.com/fossasia/fossasia-nodemailer/blob/b825d098643fa3cb42ba5774b2100322c8006cd2/config.json.dist,,False
+elastos/Elastos.ELA,docs/config.json.md,https://github.com/elastos/Elastos.ELA/blob/2e59ec2440823f28d8a05cf37117c09d93fd79be/docs/config.json.md,,False
+koolproxy/merlin-koolproxy,config.json.js,https://github.com/koolproxy/merlin-koolproxy/blob/75c68a9b63eb5b97b3c897cbf2c3e53509ded7ec/config.json.js,,False
+kudelskisecurity/cdf,config.json.enc,https://github.com/kudelskisecurity/cdf/blob/29a75421d9edf8a5fd10a4564879e315e4ea20af/config.json.enc,,False
+dmuth/evernote-to-obsidian,config.json.in,https://github.com/dmuth/evernote-to-obsidian/blob/0030469d6229ab28e14d4f2d5f641f2534adbbf5/config.json.in,,False
+RaineySpace/ionic2,ionic.config.json,https://github.com/RaineySpace/ionic2/blob/cbf821b0d2c8f7f6c3df5c1da76c4c72e801b2ed/ionic.config.json,,False
+rbrahul/Awesome-JSON-Viewer,jsconfig.json,https://github.com/rbrahul/Awesome-JSON-Viewer/blob/1b9651f0d0d5449cf1af14ff6fe626677c0df85d/jsconfig.json,,False
+tobinbradley/pg-vector-tile-server,config.json.txt,https://github.com/tobinbradley/pg-vector-tile-server/blob/0e271f544b286532a63b3f5b4cd478460aa4dc8b/config.json.txt,,False
+schmich/unfollowerbot,config.json.tpl,https://github.com/schmich/unfollowerbot/blob/a9b647dc1d83447b0a1e0f2af93ce5b73c1ed836/config.json.tpl,,False
+typescript-kr/typescript-kr.github.io,pages/tsconfig.json.md,https://github.com/typescript-kr/typescript-kr.github.io/blob/3fad5f8dab80e88a9190aae8c3256ce0b9bc7869/pages/tsconfig.json.md,,False
+shawn0326/zen-3d,tools/doc.config.json,https://github.com/shawn0326/zen-3d/blob/55bce9c6ec40399560e2301c95c81753e5a0cfc4/tools/doc.config.json,,False
+timvideos/streaming-system,config.json,https://github.com/timvideos/streaming-system/blob/af5b8e81bddbec5d09eb2e674faa3a9e6030c049/config.json,,False
+wirenboard/wb-mqtt-gpio,config.json.wb58,https://github.com/wirenboard/wb-mqtt-gpio/blob/0eb44844ec8d957350a94d9d8d86a43617a87253/config.json.wb58,,False
+RafaelVidaurre/yakuza,jsdocconfig.json,https://github.com/RafaelVidaurre/yakuza/blob/bd0643bd82c8a9debcb56c6caacbd21d18b1c7e4/jsdocconfig.json,,False
+Sasasu/placeholder,config.jsonnet,https://github.com/Sasasu/placeholder/blob/0c5973dff13c92ccbb2d1f59ff734b43c17f8b46/config.jsonnet,,False
+nickoneill/go-publisher,config.json.ex,https://github.com/nickoneill/go-publisher/blob/c76cac9f55a031d7c066d2b7f3be19d7757cc70b/config.json.ex,,False
+ANLAB-KAIST/Knapp,config.json.bak,https://github.com/ANLAB-KAIST/Knapp/blob/783ba9248ac48ab2246ef84dfd7e2efd79dcc23e/config.json.bak,,False
+BogdanMihaiciuc/BMView,tsconfig.json.txt,https://github.com/BogdanMihaiciuc/BMView/blob/59b7172ad3918462889c63f6858533ae6b350ee1/tsconfig.json.txt,,False
+neutralinojs/v2-specification,neutralino.config.json.md,https://github.com/neutralinojs/v2-specification/blob/8abde5d48b6018bc77411578b03e5e637bace202/neutralino.config.json.md,,False
+rakam-io/recipes,snowflake-usage/_config.jsonnet,https://github.com/rakam-io/recipes/blob/06db397a1ef1ac58b0877e24aae0b7337be0c579/snowflake-usage/_config.jsonnet,,False
+picam360/picam360-viewer,config.json.tmp,https://github.com/picam360/picam360-viewer/blob/7d4f40fd75b9d41828dfd462fe5e4b953f9fe3a7/config.json.tmp,,False
+darkmatter2048/WindowsCleaner,settings.py,https://github.com/darkmatter2048/WindowsCleaner/blob/b693b92717eaa8417afd48802f2e2f71d058d308/settings.py,,False
+CS-4820-Library-Project/COUNTER-5-Report-Tool-2020-5.0,docs/Settings.py.rst,https://github.com/CS-4820-Library-Project/COUNTER-5-Report-Tool-2020-5.0/blob/5d70a8a8483cb0e1718fb22dbe025437d5076695/docs/Settings.py.rst,,False
+amitv87/PiP,settings.py,https://github.com/amitv87/PiP/blob/5e8f31c5694d3013c12b5288986d1e1d96f93f42/settings.py,,False
+JoakimEwenson/pyTelldusCaller,settings.py.txt,https://github.com/JoakimEwenson/pyTelldusCaller/blob/a5a24462f7663b1faef7a8b64eed029e24f47980/settings.py.txt,,False
+Learning-Python-Team/Particle-Simulator,Settings.py,https://github.com/Learning-Python-Team/Particle-Simulator/blob/7fbacf0073d64fc12f20722b46a769bd2049d84d/Settings.py,,False
+CMU-313/docker-intro,settings.py_2.txt,https://github.com/CMU-313/docker-intro/blob/c5af16e14294a13de331c229599114975208cf23/settings.py_2.txt,,False
+sta4888/template-project,tmp/settings.py.md,https://github.com/sta4888/template-project/blob/202f52b5a19b3f35178defca343a50ff5afbad3a/tmp/settings.py.md,,False
+fgregg/cmap-legistar,pupa_settings.py,https://github.com/fgregg/cmap-legistar/blob/903c3bf841d0bfb21301922cbca71d1ad50099b8/pupa_settings.py,,False
+marncz/torcrawler,proxySettings.py,https://github.com/marncz/torcrawler/blob/5d4a89b9d8d6f84f34529dc7c92a1dd7a7074377/proxySettings.py,,False
+MalphasWats/GitHub_API,settings.py.example,https://github.com/MalphasWats/GitHub_API/blob/d1aeb9b06e70524ed2ca4a9b96a06bb3be816b1c/settings.py.example,,False
+xkong-study/django_about_web,settings.py教程.md,https://github.com/xkong-study/django_about_web/blob/0cf2f1d894be1b69900c2a89dd7ca4d71285552d/settings.py%E6%95%99%E7%A8%8B.md,,False
+NikSidorov/Founder_project,app/bot_settings.py,https://github.com/NikSidorov/Founder_project/blob/d2dfba27d56929c3a49c275e3d485023aaa6d1c1/app/bot_settings.py,,False
+barseghyanartur/valuta,examples/django_example/project/settings/local_settings.py,https://github.com/barseghyanartur/valuta/blob/465b8b073e456707511d39ffe9f341aa178351cb/examples/django_example/project/settings/local_settings.py,,False
+ShuhuaGao/gpFlappyBird,settings.py,https://github.com/ShuhuaGao/gpFlappyBird/blob/c77e1ece554040afa12889b27d32b6b51d31dd2e/settings.py,,False
+githubfarid1/messicks_app,settings.py.txt,https://github.com/githubfarid1/messicks_app/blob/147cf0fe1f3f355cdaac1d75bb94a7460b15cf8c/settings.py.txt,,False
+GepetoinTraining/Ai-Jobhunting,job_settings.py.txt,https://github.com/GepetoinTraining/Ai-Jobhunting/blob/a1beecd077c504625f528560dac65e515ac1ebcc/job_settings.py.txt,,False
+ehmatthes/balloon_ninja,Settings.py,https://github.com/ehmatthes/balloon_ninja/blob/8c45ed8962b87a3b8d730520f3b3243138bebd2d/Settings.py,,False
+djaboxx/ai-terraform-module-generator-frontend,migrations_settings.py,https://github.com/djaboxx/ai-terraform-module-generator-frontend/blob/05a7b1ec28d6ca6bcb5ee9d8cac43a65e42faa2b/migrations_settings.py,,False
+ARW9/XeroToExcel-API-PracticeEnv,default_settings.py,https://github.com/ARW9/XeroToExcel-API-PracticeEnv/blob/29226b99b0d18f8522a5f95037c4b005fddc6b5b/default_settings.py,,False
+MaxSantander/cmsweb,settings.py.txt,https://github.com/MaxSantander/cmsweb/blob/c2eb79e8721babf27306c1611a3cf9009a46cfae/settings.py.txt,,False
+lixi5338619/magical_spider,settings.py,https://github.com/lixi5338619/magical_spider/blob/7a129f7207c372677fc1bc168af5d3471df3e2ab/settings.py,,False
+stoic1979/robovision,settings.py,https://github.com/stoic1979/robovision/blob/d2cd4c1914b64e14ce4efa375dda1ffe5744ddd0/settings.py,,False
+opendevops-cn/codo-kerrigan,settings.py,https://github.com/opendevops-cn/codo-kerrigan/blob/71a8dbef3436339c51407467a492eb29b251152e/settings.py,,False
+mmalone/django-caching,settings.py,https://github.com/mmalone/django-caching/blob/c22a6653a87dc3eca265fd82e2f36663df46e004/settings.py,,False
+varsha2611/Water-Network-Generation-and-Optimization,Settings.py,https://github.com/varsha2611/Water-Network-Generation-and-Optimization/blob/c9d97d0c04ab1229a628989394a42cbbbc95b469/Settings.py,,False
+F4bwDP6a6W/spring-mvc-mini,resources/application.properties.linux,https://github.com/F4bwDP6a6W/spring-mvc-mini/blob/17591fade9be8be4e50f8e9bde5248515e7221ff/resources/application.properties.linux,Generic Password,True
+tst-labs/esocial,config/application.properties.example,https://github.com/tst-labs/esocial/blob/52aac3a6a521f06808de9b7bb94272fca3c3d949/config/application.properties.example,,False
+OpenTOSCA/container,.docker/application.properties.tpl,https://github.com/OpenTOSCA/container/blob/73f9331b7fd94e4fbd999fee9390f956ffff0a14/.docker/application.properties.tpl,Generic Password,True
+battcn/spring-boot2-learning,chapter20/src/main/resources/application.properties,https://github.com/battcn/spring-boot2-learning/blob/0b5eb45dc93efc9bd532b94fc8400a3aa15dc5d2/chapter20/src/main/resources/application.properties,,False
+fugasjunior/arma-server-manager,config/application.properties.EXAMPLE,https://github.com/fugasjunior/arma-server-manager/blob/e8b72416dc693e8fc6092e2893a67701e5ea946b/config/application.properties.EXAMPLE,Generic Password,True
+alfio-event/alf.io-PI,backend/application.properties.sample,https://github.com/alfio-event/alf.io-PI/blob/3cbfffa3b479aa011f2ec86b8a9ced9b204e8926/backend/application.properties.sample,Generic Password,True
+PapenfussLab/PathOS,Curate/application.properties.default,https://github.com/PapenfussLab/PathOS/blob/1a984c91509f541973d94453969a7f887d5afc2e/Curate/application.properties.default,,False
+LLNL/coda-calibration-tool,schema/application.properties.wms-example,https://github.com/LLNL/coda-calibration-tool/blob/2665022bb2f1f9779d8110b7d2d15cecb40237f3/schema/application.properties.wms-example,,False
+Spring-Framework-Java-Apps/simpleworklist,etc/config/application.properties_sample.txt,https://github.com/Spring-Framework-Java-Apps/simpleworklist/blob/5d85cd440300a5b41cb185babf5c4f9a5806d59a/etc/config/application.properties_sample.txt,Generic Password,True
+conjugateprior/yoshikoder,templates/application.properties.template,https://github.com/conjugateprior/yoshikoder/blob/9fe00e861f4f7b1bde7784acf55639713d51393e/templates/application.properties.template,,False
+Mrkuhuo/ai-ranking,docs/2 application.properties配置.md,https://github.com/Mrkuhuo/ai-ranking/blob/1e008611d1b971d276c9c9af940b576c72f023ad/docs/2%20application.properties%E9%85%8D%E7%BD%AE.md,,False
+kits-ab/KOLLiCon,application.properties.txt,https://github.com/kits-ab/KOLLiCon/blob/b00c746c5a762edf92e6d13845d3c397f5e4c67b/application.properties.txt,Generic Password,True
+andres81/spring-boot-reactjs-keycloak-webapp,frontend/src/conf/application.properties.js,https://github.com/andres81/spring-boot-reactjs-keycloak-webapp/blob/6b140804aeb9f7a3aefeac8c4de4af419bfcdc38/frontend/src/conf/application.properties.js,,False
+Normalised/SampleMapBuilder,application.properties.orig,https://github.com/Normalised/SampleMapBuilder/blob/75ef0abc9dbf78644a54f32c368b141cdf68f7b1/application.properties.orig,,False
+OpenBankProject/OBP-Hola,application.properties.docker,https://github.com/OpenBankProject/OBP-Hola/blob/ee6c270297deb996386ca3faa0c8fa5cfe2b4ca8/application.properties.docker,Generic Password,True
+edubezerra/sca,application.properties.HSQLDB,https://github.com/edubezerra/sca/blob/dd7d2f1ab5cfe3e6672b27f3c5bafe5c6de83251/application.properties.HSQLDB,Generic Password,True
+ojuliomiguel/knowledge-bucket,Java/Spring Boot/application.properties.md,https://github.com/ojuliomiguel/knowledge-bucket/blob/c09f67f564cc3f7970318d092651e3d701642616/Java/Spring%20Boot/application.properties.md,Generic Password,True
+DoubleZ-Zhouzhe/GlobalPlatformTechStudio,Script/Application.Properties.js,https://github.com/DoubleZ-Zhouzhe/GlobalPlatformTechStudio/blob/77013cd90c471607318b829271397f5395111748/Script/Application.Properties.js,,False
+hongquyen196/Crawl-eCommerce-Client,src/app/common/application.properties.ts,https://github.com/hongquyen196/Crawl-eCommerce-Client/blob/880a3edd55dd48d7a2470a8f8cb551fec3b5af17/src/app/common/application.properties.ts,,False
+Azure-Samples/app-service-netflix-eureka-windows,server.application.properties.template,https://github.com/Azure-Samples/app-service-netflix-eureka-windows/blob/25cd18733e508eef7114cce5d3f992ed527df4d8/server.application.properties.template,,False
+john-mwangi/mariadb-iceberg-pipeline,dockerfiles/config/application.properties.mediawiki,https://github.com/john-mwangi/mariadb-iceberg-pipeline/blob/18d4507fb548fc860694968d95897461445d2442/dockerfiles/config/application.properties.mediawiki,Generic Password,True
+acoronadoc/ansible-deploy-app-sample,templates/application.properties.j2,https://github.com/acoronadoc/ansible-deploy-app-sample/blob/ae88e6b87b3bfae52d0ff48d41ccb640a2c9a7ea/templates/application.properties.j2,Generic Password,True
+pelitoflow/crudspring,Application.Properties.txt,https://github.com/pelitoflow/crudspring/blob/e95b416e109a7524abaef4aab90711dbcaf382ba/Application.Properties.txt,Generic Password,True
+Harshini-Menta/Home-Services,application.properties.java,https://github.com/Harshini-Menta/Home-Services/blob/95f7470f4240817a695c3a0502ce31852534ec15/application.properties.java,Generic Password,True
+tillkuhn/angkor,kotlin/config/application.properties.tmpl,https://github.com/tillkuhn/angkor/blob/9f47e032c60ca879843e01eaaa07aecd75753492/kotlin/config/application.properties.tmpl,Generic Password,True

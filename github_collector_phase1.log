@@ -1,0 +1,220 @@
+2025-09-21 17:55:20,035 - INFO - 🚀 Starting Phase 1 ONLY mode
+2025-09-21 17:55:20,035 - INFO - 🚀 Starting Phase 1: Fast Basic Repository Collection
+2025-09-21 17:55:20,036 - INFO - 🔍 Searching Python repositories...
+2025-09-21 17:55:20,036 - INFO - 🔍 Searching repositories with .env files (language: Python)
+2025-09-21 17:55:20,559 - INFO - No more results for .env
+2025-09-21 17:55:20,559 - INFO - 🔍 Searching repositories with .config files (language: Python)
+2025-09-21 17:55:22,873 - INFO - No more results for .config
+2025-09-21 17:55:22,873 - INFO - 🔍 Searching repositories with .yml files (language: Python)
+2025-09-21 17:55:24,929 - INFO - No more results for .yml
+2025-09-21 17:55:24,929 - INFO - 🔍 Searching repositories with .yaml files (language: Python)
+2025-09-21 17:55:27,058 - INFO - No more results for .yaml
+2025-09-21 17:55:27,058 - INFO - 🔍 Searching repositories with .json files (language: Python)
+2025-09-21 17:55:30,008 - INFO - No more results for .json
+2025-09-21 17:55:30,009 - INFO - 🔍 Searching repositories with .xml files (language: Python)
+2025-09-21 17:55:32,832 - INFO - No more results for .xml
+2025-09-21 17:55:32,832 - INFO - 🔍 Searching repositories with .properties files (language: Python)
+2025-09-21 17:55:35,176 - INFO - No more results for .properties
+2025-09-21 17:55:35,176 - INFO - 🔍 Searching repositories with .ini files (language: Python)
+2025-09-21 17:55:37,290 - INFO - No more results for .ini
+2025-09-21 17:55:37,290 - INFO - 🔍 Searching repositories with .conf files (language: Python)
+2025-09-21 17:55:39,413 - INFO - No more results for .conf
+2025-09-21 17:55:39,413 - INFO - 🔍 Searching repositories with .cfg files (language: Python)
+2025-09-21 17:55:39,900 - INFO - No more results for .cfg
+2025-09-21 17:55:39,900 - INFO - 🔍 Searching repositories with .toml files (language: Python)
+2025-09-21 17:55:40,470 - INFO - No more results for .toml
+2025-09-21 17:55:40,471 - INFO - 🔍 Searching JavaScript repositories...
+2025-09-21 17:55:40,471 - INFO - 🔍 Searching repositories with .env files (language: JavaScript)
+2025-09-21 17:55:42,642 - INFO - No more results for .env
+2025-09-21 17:55:42,642 - INFO - 🔍 Searching repositories with .config files (language: JavaScript)
+2025-09-21 17:55:44,949 - INFO - No more results for .config
+2025-09-21 17:55:44,949 - INFO - 🔍 Searching repositories with .yml files (language: JavaScript)
+2025-09-21 17:55:45,490 - INFO - No more results for .yml
+2025-09-21 17:55:45,490 - INFO - 🔍 Searching repositories with .yaml files (language: JavaScript)
+2025-09-21 17:55:46,000 - INFO - No more results for .yaml
+2025-09-21 17:55:46,000 - INFO - 🔍 Searching repositories with .json files (language: JavaScript)
+2025-09-21 17:55:48,795 - INFO - No more results for .json
+2025-09-21 17:55:48,795 - INFO - 🔍 Searching repositories with .xml files (language: JavaScript)
+2025-09-21 17:55:50,954 - INFO - No more results for .xml
+2025-09-21 17:55:50,954 - INFO - 🔍 Searching repositories with .properties files (language: JavaScript)
+2025-09-21 17:56:53,518 - INFO - No more results for .properties
+2025-09-21 17:56:53,518 - INFO - 🔍 Searching repositories with .ini files (language: JavaScript)
+2025-09-21 17:56:55,636 - INFO - No more results for .ini
+2025-09-21 17:56:55,636 - INFO - 🔍 Searching repositories with .conf files (language: JavaScript)
+2025-09-21 17:56:56,159 - INFO - No more results for .conf
+2025-09-21 17:56:56,159 - INFO - 🔍 Searching repositories with .cfg files (language: JavaScript)
+2025-09-21 17:56:56,660 - INFO - No more results for .cfg
+2025-09-21 17:56:56,660 - INFO - 🔍 Searching repositories with .toml files (language: JavaScript)
+2025-09-21 17:56:57,183 - INFO - No more results for .toml
+2025-09-21 17:56:57,183 - INFO - 🔍 Searching TypeScript repositories...
+2025-09-21 17:56:57,184 - INFO - 🔍 Searching repositories with .env files (language: TypeScript)
+2025-09-21 17:56:59,277 - INFO - No more results for .env
+2025-09-21 17:56:59,277 - INFO - 🔍 Searching repositories with .config files (language: TypeScript)
+2025-09-21 17:56:59,827 - INFO - No more results for .config
+2025-09-21 17:56:59,827 - INFO - 🔍 Searching repositories with .yml files (language: TypeScript)
+2025-09-21 17:57:00,347 - INFO - No more results for .yml
+2025-09-21 17:57:00,347 - INFO - 🔍 Searching repositories with .yaml files (language: TypeScript)
+2025-09-21 17:57:02,531 - INFO - No more results for .yaml
+2025-09-21 17:57:02,531 - INFO - 🔍 Searching repositories with .json files (language: TypeScript)
+2025-09-21 17:57:04,777 - INFO - No more results for .json
+2025-09-21 17:57:04,777 - INFO - 🔍 Searching repositories with .xml files (language: TypeScript)
+2025-09-21 17:57:05,326 - INFO - No more results for .xml
+2025-09-21 17:57:05,326 - INFO - 🔍 Searching repositories with .properties files (language: TypeScript)
+2025-09-21 17:57:07,432 - INFO - No more results for .properties
+2025-09-21 17:57:07,432 - INFO - 🔍 Searching repositories with .ini files (language: TypeScript)
+2025-09-21 17:57:07,955 - INFO - No more results for .ini
+2025-09-21 17:57:07,955 - INFO - 🔍 Searching repositories with .conf files (language: TypeScript)
+2025-09-21 17:57:08,674 - INFO - No more results for .conf
+2025-09-21 17:57:08,675 - INFO - 🔍 Searching repositories with .cfg files (language: TypeScript)
+2025-09-21 17:57:09,213 - INFO - No more results for .cfg
+2025-09-21 17:57:09,213 - INFO - 🔍 Searching repositories with .toml files (language: TypeScript)
+2025-09-21 17:57:09,745 - INFO - No more results for .toml
+2025-09-21 17:57:09,745 - INFO - 🔍 Searching Java repositories...
+2025-09-21 17:57:09,745 - INFO - 🔍 Searching repositories with .env files (language: Java)
+2025-09-21 17:57:10,341 - INFO - No more results for .env
+2025-09-21 17:57:10,341 - INFO - 🔍 Searching repositories with .config files (language: Java)
+2025-09-21 17:57:12,423 - INFO - No more results for .config
+2025-09-21 17:57:12,423 - INFO - 🔍 Searching repositories with .yml files (language: Java)
+2025-09-21 17:57:12,942 - INFO - No more results for .yml
+2025-09-21 17:57:12,942 - INFO - 🔍 Searching repositories with .yaml files (language: Java)
+2025-09-21 17:57:13,505 - INFO - No more results for .yaml
+2025-09-21 17:57:13,505 - INFO - 🔍 Searching repositories with .json files (language: Java)
+2025-09-21 17:57:15,600 - INFO - No more results for .json
+2025-09-21 17:57:15,600 - INFO - 🔍 Searching repositories with .xml files (language: Java)
+2025-09-21 17:57:17,655 - INFO - No more results for .xml
+2025-09-21 17:57:17,656 - INFO - 🔍 Searching repositories with .properties files (language: Java)
+2025-09-21 17:58:20,235 - INFO - No more results for .properties
+2025-09-21 17:58:20,235 - INFO - 🔍 Searching repositories with .ini files (language: Java)
+2025-09-21 17:58:22,467 - INFO - No more results for .ini
+2025-09-21 17:58:22,467 - INFO - 🔍 Searching repositories with .conf files (language: Java)
+2025-09-21 17:58:23,017 - INFO - No more results for .conf
+2025-09-21 17:58:23,017 - INFO - 🔍 Searching repositories with .cfg files (language: Java)
+2025-09-21 17:58:23,539 - INFO - No more results for .cfg
+2025-09-21 17:58:23,539 - INFO - 🔍 Searching repositories with .toml files (language: Java)
+2025-09-21 17:58:24,101 - INFO - No more results for .toml
+2025-09-21 17:58:24,102 - INFO - 🔍 Searching C++ repositories...
+2025-09-21 17:58:24,102 - INFO - 🔍 Searching repositories with .env files (language: C++)
+2025-09-21 17:58:24,590 - INFO - No more results for .env
+2025-09-21 17:58:24,590 - INFO - 🔍 Searching repositories with .config files (language: C++)
+2025-09-21 17:58:25,105 - INFO - No more results for .config
+2025-09-21 17:58:25,106 - INFO - 🔍 Searching repositories with .yml files (language: C++)
+2025-09-21 17:58:25,609 - INFO - No more results for .yml
+2025-09-21 17:58:25,609 - INFO - 🔍 Searching repositories with .yaml files (language: C++)
+2025-09-21 17:58:26,137 - INFO - No more results for .yaml
+2025-09-21 17:58:26,137 - INFO - 🔍 Searching repositories with .json files (language: C++)
+2025-09-21 17:58:26,621 - INFO - No more results for .json
+2025-09-21 17:58:26,621 - INFO - 🔍 Searching repositories with .xml files (language: C++)
+2025-09-21 17:58:28,709 - INFO - No more results for .xml
+2025-09-21 17:58:28,709 - INFO - 🔍 Searching repositories with .properties files (language: C++)
+2025-09-21 17:58:29,236 - INFO - No more results for .properties
+2025-09-21 17:58:29,236 - INFO - 🔍 Searching repositories with .ini files (language: C++)
+2025-09-21 17:58:29,819 - INFO - No more results for .ini
+2025-09-21 17:58:29,820 - INFO - 🔍 Searching repositories with .conf files (language: C++)
+2025-09-21 17:58:30,358 - INFO - No more results for .conf
+2025-09-21 17:58:30,358 - INFO - 🔍 Searching repositories with .cfg files (language: C++)
+2025-09-21 17:58:30,917 - INFO - No more results for .cfg
+2025-09-21 17:58:30,917 - INFO - 🔍 Searching repositories with .toml files (language: C++)
+2025-09-21 17:58:31,450 - INFO - No more results for .toml
+2025-09-21 17:58:31,450 - INFO - 🔍 Searching C# repositories...
+2025-09-21 17:58:31,450 - INFO - 🔍 Searching repositories with .env files (language: C#)
+2025-09-21 17:58:31,934 - INFO - No more results for .env
+2025-09-21 17:58:31,934 - INFO - 🔍 Searching repositories with .config files (language: C#)
+2025-09-21 17:58:32,453 - INFO - No more results for .config
+2025-09-21 17:58:32,453 - INFO - 🔍 Searching repositories with .yml files (language: C#)
+2025-09-21 17:58:32,944 - INFO - No more results for .yml
+2025-09-21 17:58:32,944 - INFO - 🔍 Searching repositories with .yaml files (language: C#)
+2025-09-21 17:58:33,437 - INFO - No more results for .yaml
+2025-09-21 17:58:33,437 - INFO - 🔍 Searching repositories with .json files (language: C#)
+2025-09-21 17:58:36,224 - INFO - No more results for .json
+2025-09-21 17:58:36,224 - INFO - 🔍 Searching repositories with .xml files (language: C#)
+2025-09-21 17:58:38,482 - INFO - No more results for .xml
+2025-09-21 17:58:38,482 - INFO - 🔍 Searching repositories with .properties files (language: C#)
+2025-09-21 17:58:38,983 - INFO - No more results for .properties
+2025-09-21 17:58:38,983 - INFO - 🔍 Searching repositories with .ini files (language: C#)
+2025-09-21 17:58:39,534 - INFO - No more results for .ini
+2025-09-21 17:58:39,534 - INFO - 🔍 Searching repositories with .conf files (language: C#)
+2025-09-21 17:58:40,094 - INFO - No more results for .conf
+2025-09-21 17:58:40,094 - INFO - 🔍 Searching repositories with .cfg files (language: C#)
+2025-09-21 17:59:41,065 - INFO - No more results for .cfg
+2025-09-21 17:59:41,065 - INFO - 🔍 Searching repositories with .toml files (language: C#)
+2025-09-21 17:59:41,584 - INFO - No more results for .toml
+2025-09-21 17:59:41,585 - INFO - 🔍 Searching Go repositories...
+2025-09-21 17:59:41,586 - INFO - 🔍 Searching repositories with .env files (language: Go)
+2025-09-21 17:59:42,101 - INFO - No more results for .env
+2025-09-21 17:59:42,101 - INFO - 🔍 Searching repositories with .config files (language: Go)
+2025-09-21 17:59:42,622 - INFO - No more results for .config
+2025-09-21 17:59:42,622 - INFO - 🔍 Searching repositories with .yml files (language: Go)
+2025-09-21 17:59:43,133 - INFO - No more results for .yml
+2025-09-21 17:59:43,133 - INFO - 🔍 Searching repositories with .yaml files (language: Go)
+2025-09-21 17:59:43,624 - INFO - No more results for .yaml
+2025-09-21 17:59:43,624 - INFO - 🔍 Searching repositories with .json files (language: Go)
+2025-09-21 17:59:46,119 - INFO - No more results for .json
+2025-09-21 17:59:46,119 - INFO - 🔍 Searching repositories with .xml files (language: Go)
+2025-09-21 17:59:46,642 - INFO - No more results for .xml
+2025-09-21 17:59:46,642 - INFO - 🔍 Searching repositories with .properties files (language: Go)
+2025-09-21 17:59:47,199 - INFO - No more results for .properties
+2025-09-21 17:59:47,199 - INFO - 🔍 Searching repositories with .ini files (language: Go)
+2025-09-21 17:59:47,761 - INFO - No more results for .ini
+2025-09-21 17:59:47,761 - INFO - 🔍 Searching repositories with .conf files (language: Go)
+2025-09-21 17:59:48,251 - INFO - No more results for .conf
+2025-09-21 17:59:48,251 - INFO - 🔍 Searching repositories with .cfg files (language: Go)
+2025-09-21 17:59:48,768 - INFO - No more results for .cfg
+2025-09-21 17:59:48,768 - INFO - 🔍 Searching repositories with .toml files (language: Go)
+2025-09-21 17:59:49,316 - INFO - No more results for .toml
+2025-09-21 17:59:49,317 - INFO - 🔍 Searching Rust repositories...
+2025-09-21 17:59:49,317 - INFO - 🔍 Searching repositories with .env files (language: Rust)
+2025-09-21 17:59:49,797 - INFO - No more results for .env
+2025-09-21 17:59:49,798 - INFO - 🔍 Searching repositories with .config files (language: Rust)
+2025-09-21 17:59:51,957 - INFO - No more results for .config
+2025-09-21 17:59:51,957 - INFO - 🔍 Searching repositories with .yml files (language: Rust)
+2025-09-21 17:59:52,474 - INFO - No more results for .yml
+2025-09-21 17:59:52,474 - INFO - 🔍 Searching repositories with .yaml files (language: Rust)
+2025-09-21 17:59:53,037 - INFO - No more results for .yaml
+2025-09-21 17:59:53,037 - INFO - 🔍 Searching repositories with .json files (language: Rust)
+2025-09-21 17:59:53,516 - INFO - No more results for .json
+2025-09-21 17:59:53,516 - INFO - 🔍 Searching repositories with .xml files (language: Rust)
+2025-09-21 17:59:54,031 - INFO - No more results for .xml
+2025-09-21 17:59:54,031 - INFO - 🔍 Searching repositories with .properties files (language: Rust)
+2025-09-21 17:59:54,548 - INFO - No more results for .properties
+2025-09-21 17:59:54,548 - INFO - 🔍 Searching repositories with .ini files (language: Rust)
+2025-09-21 17:59:55,070 - INFO - No more results for .ini
+2025-09-21 17:59:55,070 - INFO - 🔍 Searching repositories with .conf files (language: Rust)
+2025-09-21 17:59:55,891 - INFO - No more results for .conf
+2025-09-21 17:59:55,891 - INFO - 🔍 Searching repositories with .cfg files (language: Rust)
+2025-09-21 17:59:56,395 - INFO - No more results for .cfg
+2025-09-21 17:59:56,395 - INFO - 🔍 Searching repositories with .toml files (language: Rust)
+2025-09-21 17:59:56,902 - INFO - No more results for .toml
+2025-09-21 17:59:56,903 - INFO - 🔍 Searching PHP repositories...
+2025-09-21 17:59:56,903 - INFO - 🔍 Searching repositories with .env files (language: PHP)
+2025-09-21 17:59:57,419 - INFO - No more results for .env
+2025-09-21 17:59:57,419 - INFO - 🔍 Searching repositories with .config files (language: PHP)
+2025-09-21 17:59:59,528 - INFO - No more results for .config
+2025-09-21 17:59:59,528 - INFO - 🔍 Searching repositories with .yml files (language: PHP)
+2025-09-21 18:00:00,024 - INFO - No more results for .yml
+2025-09-21 18:00:00,024 - INFO - 🔍 Searching repositories with .yaml files (language: PHP)
+2025-09-21 18:01:00,920 - INFO - No more results for .yaml
+2025-09-21 18:01:00,920 - INFO - 🔍 Searching repositories with .json files (language: PHP)
+2025-09-21 18:01:03,242 - INFO - No more results for .json
+2025-09-21 18:01:03,242 - INFO - 🔍 Searching repositories with .xml files (language: PHP)
+2025-09-21 18:01:05,296 - INFO - No more results for .xml
+2025-09-21 18:01:05,296 - INFO - 🔍 Searching repositories with .properties files (language: PHP)
+2025-09-21 18:01:05,868 - INFO - No more results for .properties
+2025-09-21 18:01:05,868 - INFO - 🔍 Searching repositories with .ini files (language: PHP)
+2025-09-21 18:01:06,459 - INFO - No more results for .ini
+2025-09-21 18:01:06,459 - INFO - 🔍 Searching repositories with .conf files (language: PHP)
+2025-09-21 18:01:06,989 - INFO - No more results for .conf
+2025-09-21 18:01:06,989 - INFO - 🔍 Searching repositories with .cfg files (language: PHP)
+2025-09-21 18:01:07,531 - INFO - No more results for .cfg
+2025-09-21 18:01:07,531 - INFO - 🔍 Searching repositories with .toml files (language: PHP)
+2025-09-21 18:01:08,003 - INFO - No more results for .toml
+2025-09-21 18:01:08,003 - INFO - 🏷️  Searching by topics...
+2025-09-21 18:01:08,004 - INFO - 🏷️  Searching repositories with topic: api
+2025-09-21 18:01:51,364 - INFO - 🏷️  Searching repositories with topic: web
+2025-09-21 18:02:38,656 - INFO - 🏷️  Searching repositories with topic: database
+2025-09-21 18:03:21,983 - INFO - 🏷️  Searching repositories with topic: security
+2025-09-21 18:04:12,221 - INFO - 🏷️  Searching repositories with topic: config
+2025-09-21 18:04:51,078 - INFO - 🏷️  Searching repositories with topic: environment
+2025-09-21 18:05:35,033 - INFO - ✅ Saved 91 repositories to database
+2025-09-21 18:05:35,036 - INFO - ✅ Phase 1 completed in 615.0 seconds
+2025-09-21 18:05:35,036 - INFO - 📊 Total repositories collected: 91
+2025-09-21 18:05:35,050 - INFO - ✅ Phase 1 completed: 91 repositories collected

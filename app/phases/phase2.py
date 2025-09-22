@@ -47,21 +47,14 @@ class Phase2Enricher:
             raise Exception("Cannot connect to database")
     
     def thread_safe_request(self, url: str) -> Optional[requests.Response]:
-        """Make a thread-safe API request with rate limiting"""
-        with self.rate_limiter:
-            # Ensure we don't exceed rate limits
-            with self.request_lock:
-                now = time.time()
-                if hasattr(self.last_request_time, 'value'):
-                    time_since_last = now - self.last_request_time.value
-                    min_interval = 1.0 / REQUESTS_PER_SECOND
-                    if time_since_last < min_interval:
-                        sleep_time = min_interval - time_since_last
-                        time.sleep(sleep_time)
-                
-                self.last_request_time.value = time.time()
-            
-            return make_github_request(url, self.headers)
+        """Make a thread-safe API request with optimized token rotation"""
+        try:
+            # Use optimized request function with token manager
+            from app.utils import make_github_request_optimized
+            return make_github_request_optimized(url)
+        except Exception as e:
+            logger.error(f"Error in thread-safe request: {e}")
+            return None
     
     def get_repositories_for_enrichment(self) -> List[Dict]:
         """Get repositories that need Phase 2 enrichment"""

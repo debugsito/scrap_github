@@ -95,13 +95,13 @@ def show_database_stats():
     except Exception as e:
         print(f"❌ Error getting statistics: {e}")
 
-def run_phase1_only(max_repos=None, min_stars=None, max_age=None):
+def run_phase1_only(max_repos=None, min_stars=None, max_age=None, workers=None):
     """Run only Phase 1: Basic repository collection"""
     logger = setup_logging("github_collector_phase1.log")
     logger.info("🚀 Starting Phase 1 ONLY mode")
     
     # Temporarily override limits if specified
-    if max_repos or min_stars is not None or max_age:
+    if max_repos or min_stars is not None or max_age or workers:
         import app.config
         if max_repos:
             original_max = app.config.PHASE1_MAX_REPOS
@@ -115,6 +115,10 @@ def run_phase1_only(max_repos=None, min_stars=None, max_age=None):
             original_age = app.config.PHASE1_MAX_AGE_YEARS
             app.config.PHASE1_MAX_AGE_YEARS = max_age
             logger.info(f"📅 Overriding max age: {max_age} years (was {original_age})")
+        if workers:
+            original_workers = app.config.PHASE1_MAX_WORKERS
+            app.config.PHASE1_MAX_WORKERS = workers
+            logger.info(f"⚡ Overriding Phase 1 workers: {workers} (was {original_workers})")
     
     collector = Phase1Collector()
     repos_collected = collector.collect_all_basic_repos()
@@ -182,9 +186,9 @@ def main():
         epilog="""
 Examples:
   python -m app.main                    # Run both phases (default)
-  python -m app.main --phase1-only      # Recent repos (last 3 years, 50K repos)
+  python -m app.main --phase1-only      # Recent repos (last 3 years, 50K repos, 3 workers)
   python -m app.main --phase1-only --max-repos 100000  # Collect up to 100K repos
-  python -m app.main --phase1-only --max-age 1         # Only repos from last year
+  python -m app.main --phase1-only --max-age 1 --workers-p1 5  # Last year, 5 parallel workers
   python -m app.main --phase1-only --max-age 2 --min-stars 10  # Last 2 years, 10+ stars
   python -m app.main --phase2-only      # Detailed enrichment (4 workers)
   python -m app.main --phase2-only --workers 8  # Use 8 parallel workers
@@ -200,6 +204,8 @@ Examples:
                        help='Minimum stars filter for Phase 1 repositories')
     parser.add_argument('--max-age', type=int, metavar='YEARS',
                        help='Maximum age in years for Phase 1 repositories (default: 3)')
+    parser.add_argument('--workers-p1', type=int, metavar='N',
+                       help='Number of parallel workers for Phase 1 (default: 3)')
     parser.add_argument('--phase2-only', action='store_true',
                        help='Run only Phase 2 (detailed enrichment)')
     parser.add_argument('--workers', type=int, metavar='N',
@@ -237,7 +243,7 @@ Examples:
     
     try:
         if args.phase1_only:
-            run_phase1_only(args.max_repos, args.min_stars, args.max_age)
+            run_phase1_only(args.max_repos, args.min_stars, args.max_age, args.workers_p1)
         elif args.phase2_only:
             run_phase2_only(args.workers)
         else:

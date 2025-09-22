@@ -11,14 +11,28 @@ load_dotenv()
 
 # GitHub API Configuration
 GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
+GITHUB_TOKENS = [
+    token for token in [
+        os.getenv('GITHUB_TOKEN'),
+        os.getenv('GITHUB_TOKEN_2'),
+        os.getenv('GITHUB_TOKEN_3'),
+        os.getenv('GITHUB_TOKEN_4'),
+        os.getenv('GITHUB_TOKEN_5')
+    ] if token
+]
+
 if not GITHUB_TOKEN:
     print("⚠️  WARNING: No GITHUB_TOKEN found. API rate limits will be very low.")
+else:
+    print(f"🔑 Found {len(GITHUB_TOKENS)} GitHub token(s) - Rate limit: {len(GITHUB_TOKENS) * 5000}/hour")
 
-# API Configuration
+# API Configuration - Optimized for single token
 MAX_REPOS_PER_QUERY = int(os.getenv('MAX_REPOS_PER_QUERY', 100))
-REQUESTS_PER_SECOND = float(os.getenv('REQUESTS_PER_SECOND', 1.0))
+REQUESTS_PER_SECOND = float(os.getenv('REQUESTS_PER_SECOND', 1.4))  # Optimized for 5000/hour
 MAX_RETRIES = int(os.getenv('MAX_RETRIES', 3))
 RETRY_DELAY = float(os.getenv('RETRY_DELAY', 1.0))
+
+# Smart rate limiting - use 1.4 req/sec = 5040/hour (slightly under limit)
 
 # Database Configuration
 DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://github_user:github_pass@localhost:5432/github_repos')
@@ -38,6 +52,10 @@ PHASE1_MIN_STARS = int(os.getenv('PHASE1_MIN_STARS', 0))
 PHASE1_MAX_REPOS = int(os.getenv('PHASE1_MAX_REPOS', 50000))  # Aumentado a 50K repos
 PHASE1_MAX_AGE_YEARS = int(os.getenv('PHASE1_MAX_AGE_YEARS', 3))  # Solo repos de últimos 3 años
 PHASE1_EXCLUDE_FORKS = os.getenv('PHASE1_EXCLUDE_FORKS', 'false').lower() == 'true'
+
+# Phase 1 Parallelization Configuration
+PHASE1_MAX_WORKERS = int(os.getenv('PHASE1_MAX_WORKERS', 3))  # Number of parallel search workers
+PHASE1_BATCH_SIZE = int(os.getenv('PHASE1_BATCH_SIZE', 10))   # File types per batch
 
 # Phase 2 Configuration (Detailed Enrichment)
 PHASE2_MIN_STARS = int(os.getenv('PHASE2_MIN_STARS', 10))

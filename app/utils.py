@@ -1,5 +1,6 @@
 """
 Utility functions for GitHub Repository Scraper
+Enhanced with multi-token support for rate limit optimization
 """
 
 import time
@@ -19,6 +20,62 @@ def setup_logging(log_file: str = "github_collector.log") -> logging.Logger:
         ]
     )
     return logging.getLogger(__name__)
+
+def make_github_request_optimized(url: str, params: Optional[Dict[str, Any]] = None,
+                                max_retries: int = 3) -> Optional[requests.Response]:
+    """
+    Optimized GitHub API request using token manager for rate limit optimization
+    Automatically rotates between available tokens
+    """
+    try:
+        # Import here to avoid circular imports
+        from app.token_manager import token_manager
+        
+        if not token_manager:
+            # Fallback to original method if no token manager
+            from app.config import GITHUB_TOKEN
+            headers = {
+                'Accept': 'application/vnd.github.v3+json',
+                'User-Agent': 'GitHub-Repository-Scraper'
+            }
+            if GITHUB_TOKEN:
+                headers['Authorization'] = f'token {GITHUB_TOKEN}'
+            return make_github_request(url, headers, params, max_retries)
+        
+        for attempt in range(max_retries):
+            try:
+                # Get best available token
+                token, headers = token_manager.get_best_token()
+                if not token:
+                    logging.warning("No tokens available")
+                    return None
+                
+                response = requests.get(url, headers=headers, params=params, timeout=30)
+                
+                if response.status_code == 200:
+                    return response
+                elif response.status_code == 403:
+                    # Rate limit hit, token manager will handle rotation
+                    logging.debug(f"Rate limit hit on attempt {attempt + 1}")
+                    time.sleep(1)  # Brief pause before retry
+                    continue
+                elif response.status_code == 404:
+                    logging.debug(f"Resource not found: {url}")
+                    return None
+                else:
+                    logging.warning(f"Unexpected status code {response.status_code} for {url}")
+                    return None
+                    
+            except requests.exceptions.RequestException as e:
+                logging.warning(f"Request error on attempt {attempt + 1}: {e}")
+                if attempt < max_retries - 1:
+                    time.sleep(2 ** attempt)  # Exponential backoff
+        
+        return None
+        
+    except Exception as e:
+        logging.error(f"Error in optimized request: {e}")
+        return None
 
 def rate_limit_handler(response: requests.Response) -> None:
     """Handle GitHub API rate limiting"""

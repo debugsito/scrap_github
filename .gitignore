@@ -1,5 +1,120 @@
+# Environment Files (CRITICAL - Contains API tokens)
 .env
+.env.*
+*.env
+.environment
+
+# Python Virtual Environments
 .venv
-.idea
-venv
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.Python
+
+# Python Cache and Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Database Files (Large and Sensitive)
+*.db
+*.sqlite
+*.sqlite3
+backup_*.db
+github_data*.db
+github_repos*.db
+
+# Log Files
+*.log
+logs/
+github_collector*.log
+github_scan.log
+
+# Data and Export Files
 data/
+exports/
+*.csv
+*.json
+*.xml
+repos_*.csv
+
+# IDE and Editor Files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# Temporary Files
+temp/
+tmp/
+.tmp/
+*.tmp
+*.bak
+*.backup
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Documentation Build
+docs/_build/
+site/
+
+# Test Coverage
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Sensitive Data and Credentials
+config.ini
+credentials.json
+tokens.txt
+secrets/

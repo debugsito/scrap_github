@@ -95,10 +95,26 @@ def show_database_stats():
     except Exception as e:
         print(f"❌ Error getting statistics: {e}")
 
-def run_phase1_only():
+def run_phase1_only(max_repos=None, min_stars=None, max_age=None):
     """Run only Phase 1: Basic repository collection"""
     logger = setup_logging("github_collector_phase1.log")
     logger.info("🚀 Starting Phase 1 ONLY mode")
+    
+    # Temporarily override limits if specified
+    if max_repos or min_stars is not None or max_age:
+        import app.config
+        if max_repos:
+            original_max = app.config.PHASE1_MAX_REPOS
+            app.config.PHASE1_MAX_REPOS = max_repos
+            logger.info(f"📊 Overriding max repos: {max_repos} (was {original_max})")
+        if min_stars is not None:
+            original_stars = app.config.PHASE1_MIN_STARS
+            app.config.PHASE1_MIN_STARS = min_stars
+            logger.info(f"⭐ Overriding min stars: {min_stars} (was {original_stars})")
+        if max_age:
+            original_age = app.config.PHASE1_MAX_AGE_YEARS
+            app.config.PHASE1_MAX_AGE_YEARS = max_age
+            logger.info(f"📅 Overriding max age: {max_age} years (was {original_age})")
     
     collector = Phase1Collector()
     repos_collected = collector.collect_all_basic_repos()
@@ -166,7 +182,10 @@ def main():
         epilog="""
 Examples:
   python -m app.main                    # Run both phases (default)
-  python -m app.main --phase1-only      # Fast basic collection
+  python -m app.main --phase1-only      # Recent repos (last 3 years, 50K repos)
+  python -m app.main --phase1-only --max-repos 100000  # Collect up to 100K repos
+  python -m app.main --phase1-only --max-age 1         # Only repos from last year
+  python -m app.main --phase1-only --max-age 2 --min-stars 10  # Last 2 years, 10+ stars
   python -m app.main --phase2-only      # Detailed enrichment (4 workers)
   python -m app.main --phase2-only --workers 8  # Use 8 parallel workers
   python -m app.main --stats            # Show database statistics
@@ -175,6 +194,12 @@ Examples:
     
     parser.add_argument('--phase1-only', action='store_true',
                        help='Run only Phase 1 (fast basic collection)')
+    parser.add_argument('--max-repos', type=int, metavar='N',
+                       help='Maximum number of repositories to collect in Phase 1')
+    parser.add_argument('--min-stars', type=int, metavar='N',
+                       help='Minimum stars filter for Phase 1 repositories')
+    parser.add_argument('--max-age', type=int, metavar='YEARS',
+                       help='Maximum age in years for Phase 1 repositories (default: 3)')
     parser.add_argument('--phase2-only', action='store_true',
                        help='Run only Phase 2 (detailed enrichment)')
     parser.add_argument('--workers', type=int, metavar='N',
@@ -212,7 +237,7 @@ Examples:
     
     try:
         if args.phase1_only:
-            run_phase1_only()
+            run_phase1_only(args.max_repos, args.min_stars, args.max_age)
         elif args.phase2_only:
             run_phase2_only(args.workers)
         else:

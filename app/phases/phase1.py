@@ -5,14 +5,14 @@ Efficiently collects basic repository data using GitHub Search API
 
 import time
 import logging
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Set
 import requests
 import json
 
 from app.config import (
     GITHUB_TOKEN, MAX_REPOS_PER_QUERY, REQUESTS_PER_SECOND,
-    PHASE1_FILE_TYPES, PHASE1_MIN_STARS, PHASE1_MAX_REPOS,
+    PHASE1_FILE_TYPES, PHASE1_MIN_STARS, PHASE1_MAX_REPOS, PHASE1_MAX_AGE_YEARS, PHASE1_EXCLUDE_FORKS,
     SEARCH_LANGUAGES, SEARCH_TOPICS
 )
 from app.models import Repository, db, ensure_connection
@@ -43,6 +43,10 @@ class Phase1Collector:
         """Search repositories containing specific file types"""
         repositories = []
         
+        # Calculate date filter for recent repositories
+        cutoff_date = datetime.now() - timedelta(days=PHASE1_MAX_AGE_YEARS * 365)
+        date_filter = cutoff_date.strftime('%Y-%m-%d')
+        
         for file_type in file_types:
             query_parts = [f'filename:{file_type}']
             
@@ -52,16 +56,23 @@ class Phase1Collector:
             if PHASE1_MIN_STARS > 0:
                 query_parts.append(f'stars:>={PHASE1_MIN_STARS}')
             
+            # Add date filter for recent repos
+            query_parts.append(f'created:>={date_filter}')
+            
+            # Exclude forks if configured
+            if PHASE1_EXCLUDE_FORKS:
+                query_parts.append('fork:false')
+            
             query = ' '.join(query_parts)
             
-            logger.info(f"🔍 Searching repositories with {file_type} files (language: {language or 'any'})")
+            logger.info(f"🔍 Searching repositories with {file_type} files (language: {language or 'any'}, created after: {date_filter})")
             
             page = 1
             while len(repositories) < PHASE1_MAX_REPOS:
                 url = 'https://api.github.com/search/repositories'
                 params = {
                     'q': query,
-                    'sort': 'stars',
+                    'sort': 'updated',  # Sort by most recently updated
                     'order': 'desc',
                     'per_page': min(100, MAX_REPOS_PER_QUERY),
                     'page': page
@@ -104,20 +115,33 @@ class Phase1Collector:
         """Search repositories by topics"""
         repositories = []
         
+        # Calculate date filter for recent repositories  
+        cutoff_date = datetime.now() - timedelta(days=PHASE1_MAX_AGE_YEARS * 365)
+        date_filter = cutoff_date.strftime('%Y-%m-%d')
+        
         for topic in topics:
-            query = f'topic:{topic}'
+            query_parts = [f'topic:{topic}']
             
             if PHASE1_MIN_STARS > 0:
-                query += f' stars:>={PHASE1_MIN_STARS}'
+                query_parts.append(f'stars:>={PHASE1_MIN_STARS}')
             
-            logger.info(f"🏷️  Searching repositories with topic: {topic}")
+            # Add date filter for recent repos
+            query_parts.append(f'created:>={date_filter}')
+            
+            # Exclude forks if configured
+            if PHASE1_EXCLUDE_FORKS:
+                query_parts.append('fork:false')
+            
+            query = ' '.join(query_parts)
+            
+            logger.info(f"🏷️  Searching repositories with topic: {topic} (created after: {date_filter})")
             
             page = 1
             while len(repositories) < PHASE1_MAX_REPOS:
                 url = 'https://api.github.com/search/repositories'
                 params = {
                     'q': query,
-                    'sort': 'stars',
+                    'sort': 'updated',  # Sort by most recently updated
                     'order': 'desc',
                     'per_page': min(100, MAX_REPOS_PER_QUERY),
                     'page': page

@@ -218,3 +218,57 @@
 2025-09-21 18:05:35,036 - INFO - ✅ Phase 1 completed in 615.0 seconds
 2025-09-21 18:05:35,036 - INFO - 📊 Total repositories collected: 91
 2025-09-21 18:05:35,050 - INFO - ✅ Phase 1 completed: 91 repositories collected
+2025-09-21 20:20:12,302 - INFO - 🚀 Starting Phase 1 ONLY mode
+2025-09-21 20:20:12,302 - INFO - 📊 Overriding max repos: 50000 (was 50000)
+2025-09-21 20:20:12,302 - INFO - 📅 Overriding max age: 3 years (was 3)
+2025-09-21 20:20:12,302 - INFO - 🚀 Starting Phase 1: Fast Basic Repository Collection
+2025-09-21 20:20:12,302 - INFO - 🔍 Searching Python repositories...
+2025-09-21 20:20:12,303 - INFO - 🔍 Searching repositories with .env files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:12,854 - INFO - No more results for .env
+2025-09-21 20:20:12,854 - INFO - 🔍 Searching repositories with .config files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:15,037 - INFO - No more results for .config
+2025-09-21 20:20:15,037 - INFO - 🔍 Searching repositories with .yml files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:15,943 - INFO - No more results for .yml
+2025-09-21 20:20:15,943 - INFO - 🔍 Searching repositories with .yaml files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:16,508 - INFO - No more results for .yaml
+2025-09-21 20:20:16,508 - INFO - 🔍 Searching repositories with .json files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:18,919 - INFO - No more results for .json
+2025-09-21 20:20:18,919 - INFO - 🔍 Searching repositories with .xml files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:21,090 - INFO - No more results for .xml
+2025-09-21 20:20:21,090 - INFO - 🔍 Searching repositories with .properties files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:23,183 - INFO - No more results for .properties
+2025-09-21 20:20:23,183 - INFO - 🔍 Searching repositories with .ini files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:23,724 - INFO - No more results for .ini
+2025-09-21 20:20:23,724 - INFO - 🔍 Searching repositories with .conf files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:24,255 - INFO - No more results for .conf
+2025-09-21 20:20:24,255 - INFO - 🔍 Searching repositories with .cfg files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:24,782 - INFO - No more results for .cfg
+2025-09-21 20:20:24,782 - INFO - 🔍 Searching repositories with .toml files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:25,282 - INFO - No more results for .toml
+2025-09-21 20:20:25,282 - INFO - 🔍 Searching repositories with .dockerfile files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:25,822 - INFO - No more results for .dockerfile
+2025-09-21 20:20:25,822 - INFO - 🔍 Searching repositories with .docker-compose.yml files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:26,340 - INFO - No more results for .docker-compose.yml
+2025-09-21 20:20:26,340 - INFO - 🔍 Searching repositories with .gitignore files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:28,723 - INFO - No more results for .gitignore
+2025-09-21 20:20:28,723 - INFO - 🔍 Searching repositories with .editorconfig files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:29,186 - INFO - No more results for .editorconfig
+2025-09-21 20:20:29,186 - INFO - 🔍 Searching repositories with .travis.yml files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:29,705 - INFO - No more results for .travis.yml
+2025-09-21 20:20:29,705 - INFO - 🔍 Searching repositories with .circleci files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:30,224 - INFO - No more results for .circleci
+2025-09-21 20:20:30,224 - INFO - 🔍 Searching repositories with .github files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:32,444 - INFO - No more results for .github
+2025-09-21 20:20:32,445 - INFO - 🔍 Searching repositories with .vscode files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:34,604 - INFO - No more results for .vscode
+2025-09-21 20:20:34,604 - INFO - 🔍 Searching repositories with .idea files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:35,138 - INFO - No more results for .idea
+2025-09-21 20:20:35,138 - INFO - 🔍 Searching repositories with requirements.txt files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:37,279 - INFO - No more results for requirements.txt
+2025-09-21 20:20:37,279 - INFO - 🔍 Searching repositories with package.json files (language: Python, created after: 2022-09-22)
+2025-09-21 20:20:37,860 - INFO - No more results for package.json
+2025-09-21 20:20:37,860 - INFO - 🔍 Searching repositories with composer.json files (language: Python, created after: 2022-09-22)
+2025-09-21 20:21:38,730 - INFO - No more results for composer.json
+2025-09-21 20:21:38,730 - INFO - 🔍 Searching repositories with Gemfile files (language: Python, created after: 2022-09-22)
+2025-09-21 20:21:39,218 - INFO - No more results for Gemfile
+2025-09-21 20:21:39,218 - INFO - 🔍 Searching repositories with Cargo.toml files (language: Python, created after: 2022-09-22)

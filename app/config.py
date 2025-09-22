@@ -33,9 +33,11 @@ RUN_PHASE1 = os.getenv('RUN_PHASE1', 'true').lower() == 'true'
 RUN_PHASE2 = os.getenv('RUN_PHASE2', 'true').lower() == 'true'
 
 # Phase 1 Configuration (Fast Basic Collection)
-PHASE1_FILE_TYPES = os.getenv('PHASE1_FILE_TYPES', '.env,.config,.yml,.yaml,.json,.xml,.properties,.ini,.conf,.cfg,.toml').split(',')
+PHASE1_FILE_TYPES = os.getenv('PHASE1_FILE_TYPES', '.env,.config,.yml,.yaml,.json,.xml,.properties,.ini,.conf,.cfg,.toml,.dockerfile,.docker-compose.yml,.gitignore,.editorconfig,.travis.yml,.circleci,.github,.vscode,.idea,requirements.txt,package.json,composer.json,Gemfile,Cargo.toml,go.mod,pom.xml,build.gradle,CMakeLists.txt,Makefile,.eslintrc,.babelrc,.prettierrc,webpack.config.js,tsconfig.json,tailwind.config.js,next.config.js,nuxt.config.js,vue.config.js,angular.json,pubspec.yaml,Podfile,build.sbt,mix.exs,deno.json,.terraform,.ansible,.helm').split(',')
 PHASE1_MIN_STARS = int(os.getenv('PHASE1_MIN_STARS', 0))
-PHASE1_MAX_REPOS = int(os.getenv('PHASE1_MAX_REPOS', 10000))
+PHASE1_MAX_REPOS = int(os.getenv('PHASE1_MAX_REPOS', 50000))  # Aumentado a 50K repos
+PHASE1_MAX_AGE_YEARS = int(os.getenv('PHASE1_MAX_AGE_YEARS', 3))  # Solo repos de últimos 3 años
+PHASE1_EXCLUDE_FORKS = os.getenv('PHASE1_EXCLUDE_FORKS', 'false').lower() == 'true'
 
 # Phase 2 Configuration (Detailed Enrichment)
 PHASE2_MIN_STARS = int(os.getenv('PHASE2_MIN_STARS', 10))
@@ -48,8 +50,8 @@ PHASE2_MAX_WORKERS = int(os.getenv('PHASE2_MAX_WORKERS', 4))  # Number of concur
 PHASE2_BATCH_SIZE = int(os.getenv('PHASE2_BATCH_SIZE', 50))   # Repos per batch
 
 # Search Configuration
-SEARCH_LANGUAGES = os.getenv('SEARCH_LANGUAGES', 'Python,JavaScript,TypeScript,Java,C++,C#,Go,Rust,PHP').split(',')
-SEARCH_TOPICS = os.getenv('SEARCH_TOPICS', 'api,web,database,security,config,environment').split(',')
+SEARCH_LANGUAGES = os.getenv('SEARCH_LANGUAGES', 'Python,JavaScript,TypeScript,Java,C++,C#,Go,Rust,PHP,Ruby,Swift,Kotlin,Scala,R,MATLAB,Perl,Shell,PowerShell,Lua,Dart,Elixir,Haskell,Clojure,F#,Julia,Nim,Crystal,Zig').split(',')
+SEARCH_TOPICS = os.getenv('SEARCH_TOPICS', 'api,web,database,security,config,environment,devops,automation,tool,framework,library,cli,microservice,docker,kubernetes,terraform,ansible').split(',')
 
 # Logging Configuration
 LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO').upper()

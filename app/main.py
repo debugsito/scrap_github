@@ -109,10 +109,17 @@ def run_phase1_only():
     print(f"💾 Data saved to PostgreSQL database")
     print(f"🔍 Run 'python -m app.main --stats' to see statistics")
 
-def run_phase2_only():
+def run_phase2_only(max_workers=None):
     """Run only Phase 2: Detailed enrichment"""
     logger = setup_logging("github_collector_phase2.log")
     logger.info("🔬 Starting Phase 2 ONLY mode")
+    
+    # Temporarily override workers if specified
+    if max_workers:
+        import app.config
+        original_workers = app.config.PHASE2_MAX_WORKERS
+        app.config.PHASE2_MAX_WORKERS = max_workers
+        logger.info(f"⚡ Overriding workers: {max_workers} (was {original_workers})")
     
     enricher = Phase2Enricher()
     repos_enriched = enricher.enrich_repositories()
@@ -120,6 +127,8 @@ def run_phase2_only():
     logger.info(f"✅ Phase 2 completed: {repos_enriched} repositories enriched")
     print(f"\n🎉 Phase 2 completed successfully!")
     print(f"📊 Enriched {repos_enriched} repositories")
+    if hasattr(enricher, 'failed_count') and enricher.failed_count > 0:
+        print(f"❌ Failed {enricher.failed_count} repositories")
     print(f"💾 Data updated in PostgreSQL database")
 
 def run_both_phases():
@@ -156,10 +165,11 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python -m app.main                # Run both phases (default)
-  python -m app.main --phase1-only  # Fast basic collection
-  python -m app.main --phase2-only  # Detailed enrichment only
-  python -m app.main --stats        # Show database statistics
+  python -m app.main                    # Run both phases (default)
+  python -m app.main --phase1-only      # Fast basic collection
+  python -m app.main --phase2-only      # Detailed enrichment (4 workers)
+  python -m app.main --phase2-only --workers 8  # Use 8 parallel workers
+  python -m app.main --stats            # Show database statistics
         """
     )
     
@@ -167,6 +177,8 @@ Examples:
                        help='Run only Phase 1 (fast basic collection)')
     parser.add_argument('--phase2-only', action='store_true',
                        help='Run only Phase 2 (detailed enrichment)')
+    parser.add_argument('--workers', type=int, metavar='N',
+                       help='Number of parallel workers for Phase 2 (default: 4)')
     parser.add_argument('--stats', action='store_true',
                        help='Show database statistics and exit')
     parser.add_argument('--verbose', '-v', action='store_true',
@@ -202,7 +214,7 @@ Examples:
         if args.phase1_only:
             run_phase1_only()
         elif args.phase2_only:
-            run_phase2_only()
+            run_phase2_only(args.workers)
         else:
             run_both_phases()
             

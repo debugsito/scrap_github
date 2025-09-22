@@ -43,6 +43,10 @@ PHASE2_MAX_AGE_YEARS = int(os.getenv('PHASE2_MAX_AGE_YEARS', 5))
 PHASE2_MAX_REPOS = int(os.getenv('PHASE2_MAX_REPOS', 1000))
 PHASE2_SKIP_FORKS = os.getenv('PHASE2_SKIP_FORKS', 'true').lower() == 'true'
 
+# Phase 2 Parallelization Configuration
+PHASE2_MAX_WORKERS = int(os.getenv('PHASE2_MAX_WORKERS', 4))  # Number of concurrent threads
+PHASE2_BATCH_SIZE = int(os.getenv('PHASE2_BATCH_SIZE', 50))   # Repos per batch
+
 # Search Configuration
 SEARCH_LANGUAGES = os.getenv('SEARCH_LANGUAGES', 'Python,JavaScript,TypeScript,Java,C++,C#,Go,Rust,PHP').split(',')
 SEARCH_TOPICS = os.getenv('SEARCH_TOPICS', 'api,web,database,security,config,environment').split(',')

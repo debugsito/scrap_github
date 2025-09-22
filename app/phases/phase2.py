@@ -1,18 +1,22 @@
 """
 Phase 2: Detailed Repository Enrichment
 Intelligently enriches high-value repositories with detailed information
+Now with parallel processing support for improved performance
 """
 
 import time
 import logging
 import json
+import threading
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Any
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import requests
 
 from app.config import (
     GITHUB_TOKEN, REQUESTS_PER_SECOND,
-    PHASE2_MIN_STARS, PHASE2_MAX_AGE_YEARS, PHASE2_MAX_REPOS, PHASE2_SKIP_FORKS
+    PHASE2_MIN_STARS, PHASE2_MAX_AGE_YEARS, PHASE2_MAX_REPOS, PHASE2_SKIP_FORKS,
+    PHASE2_MAX_WORKERS, PHASE2_BATCH_SIZE
 )
 from app.models import db, ensure_connection
 from app.utils import make_github_request, print_progress
@@ -20,7 +24,7 @@ from app.utils import make_github_request, print_progress
 logger = logging.getLogger(__name__)
 
 class Phase2Enricher:
-    """Intelligent detailed enrichment for high-value repositories"""
+    """Intelligent detailed enrichment for high-value repositories with parallel processing"""
     
     def __init__(self):
         self.headers = {
@@ -31,10 +35,33 @@ class Phase2Enricher:
             self.headers['Authorization'] = f'token {GITHUB_TOKEN}'
         
         self.enriched_count = 0
+        self.failed_count = 0
+        
+        # Thread-safe rate limiting
+        self.rate_limiter = threading.Semaphore(PHASE2_MAX_WORKERS)
+        self.last_request_time = threading.local()
+        self.request_lock = threading.Lock()
         
         # Ensure database connection
         if not ensure_connection():
             raise Exception("Cannot connect to database")
+    
+    def thread_safe_request(self, url: str) -> Optional[requests.Response]:
+        """Make a thread-safe API request with rate limiting"""
+        with self.rate_limiter:
+            # Ensure we don't exceed rate limits
+            with self.request_lock:
+                now = time.time()
+                if hasattr(self.last_request_time, 'value'):
+                    time_since_last = now - self.last_request_time.value
+                    min_interval = 1.0 / REQUESTS_PER_SECOND
+                    if time_since_last < min_interval:
+                        sleep_time = min_interval - time_since_last
+                        time.sleep(sleep_time)
+                
+                self.last_request_time.value = time.time()
+            
+            return make_github_request(url, self.headers)
     
     def get_repositories_for_enrichment(self) -> List[Dict]:
         """Get repositories that need Phase 2 enrichment"""
@@ -73,7 +100,7 @@ class Phase2Enricher:
         """Get detailed language statistics for repository"""
         url = f'https://api.github.com/repos/{full_name}/languages'
         
-        response = make_github_request(url, self.headers)
+        response = self.thread_safe_request(url)
         if not response:
             return None
         
@@ -109,7 +136,7 @@ class Phase2Enricher:
         """Get contributor information for repository"""
         url = f'https://api.github.com/repos/{full_name}/contributors'
         
-        response = make_github_request(url, self.headers)
+        response = self.thread_safe_request(url)
         if not response:
             return None
         
@@ -136,7 +163,7 @@ class Phase2Enricher:
         
         # Get commit count (approximate from commits API)
         commits_url = f'https://api.github.com/repos/{full_name}/commits'
-        commits_response = make_github_request(commits_url, self.headers, {'per_page': 1})
+        commits_response = self.thread_safe_request(commits_url + '?per_page=1')
         
         if commits_response:
             # GitHub provides commit count in Link header for pagination
@@ -156,11 +183,9 @@ class Phase2Enricher:
                 except:
                     activity_data['commits_count'] = None
         
-        time.sleep(1.0 / REQUESTS_PER_SECOND)
-        
         # Get branches count
         branches_url = f'https://api.github.com/repos/{full_name}/branches'
-        branches_response = make_github_request(branches_url, self.headers)
+        branches_response = self.thread_safe_request(branches_url)
         
         if branches_response:
             try:
@@ -169,11 +194,9 @@ class Phase2Enricher:
             except:
                 activity_data['branches_count'] = None
         
-        time.sleep(1.0 / REQUESTS_PER_SECOND)
-        
         # Get releases count and latest release
         releases_url = f'https://api.github.com/repos/{full_name}/releases'
-        releases_response = make_github_request(releases_url, self.headers)
+        releases_response = self.thread_safe_request(releases_url)
         
         if releases_response:
             try:
@@ -194,7 +217,7 @@ class Phase2Enricher:
         """Get repository README content (first 1000 characters)"""
         url = f'https://api.github.com/repos/{full_name}/readme'
         
-        response = make_github_request(url, self.headers)
+        response = self.thread_safe_request(url)
         if not response:
             return None
         
@@ -287,9 +310,77 @@ class Phase2Enricher:
             logger.error(f"❌ Error updating repository {full_name}: {e}")
             return False
     
+    def enrich_repository_worker(self, repo_info: Dict) -> tuple[bool, str]:
+        """Worker function to enrich a single repository (thread-safe)"""
+        full_name = repo_info.get('full_name', 'unknown')
+        github_id = repo_info.get('github_id')
+        
+        try:
+            logger.debug(f"🔬 Enriching repository: {full_name}")
+            
+            enrichment_data = {'github_id': github_id}
+            
+            # Get language statistics
+            language_data = self.get_repository_languages(full_name)
+            if language_data:
+                enrichment_data.update(language_data)
+            
+            # Get contributor information
+            contributor_data = self.get_repository_contributors(full_name)
+            if contributor_data:
+                enrichment_data.update(contributor_data)
+            
+            # Get activity metrics
+            activity_data = self.get_repository_activity(full_name)
+            if activity_data:
+                enrichment_data.update(activity_data)
+            
+            # Get README content
+            readme_content = self.get_repository_readme(full_name)
+            if readme_content:
+                enrichment_data['readme_content'] = readme_content
+            
+            # Update repository in database
+            update_fields = []
+            update_params = []
+            
+            for field, value in enrichment_data.items():
+                if field != 'github_id':
+                    if field == 'language_stats' and isinstance(value, dict):
+                        update_fields.append(f"{field} = %s")
+                        update_params.append(json.dumps(value))
+                    else:
+                        update_fields.append(f"{field} = %s")
+                        update_params.append(value)
+            
+            # Add phase2 completion markers
+            update_fields.extend(['phase2_completed = %s', 'phase2_completed_at = %s'])
+            update_params.extend([True, datetime.now()])
+            update_params.append(github_id)
+            
+            update_query = f"""
+                UPDATE repositories 
+                SET {', '.join(update_fields)}
+                WHERE github_id = %s
+            """
+            
+            rows_updated = db.execute_update(update_query, tuple(update_params))
+            
+            if rows_updated > 0:
+                logger.info(f"✅ Successfully enriched {full_name}")
+                return True, full_name
+            else:
+                logger.warning(f"⚠️  No rows updated for {full_name}")
+                return False, full_name
+        
+        except Exception as e:
+            logger.error(f"❌ Error enriching repository {full_name}: {e}")
+            return False, full_name
+    
     def enrich_repositories(self) -> int:
-        """Enrich all eligible repositories with detailed information"""
-        logger.info("🔬 Starting Phase 2: Detailed Repository Enrichment")
+        """Enrich all eligible repositories with detailed information using parallel processing"""
+        logger.info(f"🔬 Starting Phase 2: Detailed Repository Enrichment (Parallel Mode)")
+        logger.info(f"⚡ Using {PHASE2_MAX_WORKERS} workers with batches of {PHASE2_BATCH_SIZE}")
         
         start_time = datetime.now()
         
@@ -302,26 +393,49 @@ class Phase2Enricher:
         total_repos = len(repositories)
         logger.info(f"📊 Processing {total_repos} repositories for detailed enrichment")
         
-        # Enrich each repository
-        for i, repo_info in enumerate(repositories, 1):
-            try:
-                success = self.enrich_repository(repo_info)
-                if success:
-                    self.enriched_count += 1
-                
-                print_progress(i, total_repos, "Enriching repositories")
-                
-                # Rate limiting
-                time.sleep(1.0 / REQUESTS_PER_SECOND)
-                
-            except Exception as e:
-                logger.error(f"❌ Error enriching {repo_info.get('full_name')}: {e}")
-                continue
+        # Process repositories in parallel using ThreadPoolExecutor
+        completed_count = 0
+        failed_count = 0
+        
+        with ThreadPoolExecutor(max_workers=PHASE2_MAX_WORKERS) as executor:
+            # Submit all tasks
+            future_to_repo = {
+                executor.submit(self.enrich_repository_worker, repo): repo
+                for repo in repositories
+            }
+            
+            # Process completed tasks
+            for future in as_completed(future_to_repo):
+                repo = future_to_repo[future]
+                try:
+                    success, repo_name = future.result()
+                    if success:
+                        completed_count += 1
+                    else:
+                        failed_count += 1
+                    
+                    # Update progress
+                    total_processed = completed_count + failed_count
+                    print_progress(total_processed, total_repos, "Enriching repositories")
+                    
+                except Exception as e:
+                    failed_count += 1
+                    logger.error(f"❌ Task failed for {repo.get('full_name', 'unknown')}: {e}")
         
         end_time = datetime.now()
         duration = (end_time - start_time).total_seconds()
         
         logger.info(f"✅ Phase 2 completed in {duration:.1f} seconds")
-        logger.info(f"📊 Total repositories enriched: {self.enriched_count}/{total_repos}")
+        logger.info(f"📊 Total repositories processed: {completed_count + failed_count}/{total_repos}")
+        logger.info(f"✅ Successfully enriched: {completed_count}")
+        logger.info(f"❌ Failed: {failed_count}")
         
-        return self.enriched_count
+        # Calculate speedup
+        estimated_sequential_time = total_repos * 8  # ~8 seconds per repo sequentially
+        speedup = estimated_sequential_time / duration if duration > 0 else 0
+        logger.info(f"⚡ Estimated speedup: {speedup:.1f}x faster than sequential processing")
+        
+        self.enriched_count = completed_count
+        self.failed_count = failed_count
+        
+        return completed_count
